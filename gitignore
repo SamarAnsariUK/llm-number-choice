@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Measurement working folders created by run_all.py inside code/
+code/results/
+code/logs/
+
+# LaTeX build files
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.blg
+paper/*.toc
+paper/*.synctex.gz
+
+# System files
+.DS_Store
+Thumbs.db

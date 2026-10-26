@@ -1,0 +1,51 @@
+
+1. SAMPLER EFFECT at N=30 (top-p 0.95 vs untruncated, same T)
+   T1: 75 stack rows, 49 conditions; median TV added 0.0353 (IQR 0.0203 to 0.0482), max 0.082; median p(mode) ratio 1.045
+   T0.7: 75 stack rows, 49 conditions; median TV added 0.0355 (IQR 0.0149 to 0.0479), max 0.159; median p(mode) ratio 1.045
+
+2. ODD vs EVEN, endpoints and multiples of 5 removed, top k removed
+   top 1 removed:
+      base     N= 20: median 1.09 IQR 0.98 to 1.14, 11/16 above 1, sign test p=0.21
+      base     N= 30: median 1.01 IQR 0.98 to 1.09, 9/16 above 1, sign test p=0.8
+      base     N=100: median 1.16 IQR 1.05 to 1.30, 16/16 above 1, sign test p=3.1e-05
+      instruct N= 20: median 1.64 IQR 0.76 to 3.64, 21/33 above 1, sign test p=0.16
+      instruct N= 30: median 1.24 IQR 0.78 to 2.06, 21/33 above 1, sign test p=0.16
+      instruct N=100: median 2.09 IQR 1.17 to 21.03, 27/33 above 1, sign test p=0.00032
+   top 2 removed:
+      base     N= 20: median 0.99 IQR 0.98 to 1.09, 7/16 above 1, sign test p=0.8
+      base     N= 30: median 0.97 IQR 0.94 to 1.08, 6/16 above 1, sign test p=0.45
+      base     N=100: median 1.06 IQR 1.00 to 1.29, 11/16 above 1, sign test p=0.21
+      instruct N= 20: median 1.33 IQR 0.95 to 2.94, 22/33 above 1, sign test p=0.08
+      instruct N= 30: median 1.39 IQR 0.90 to 3.09, 23/33 above 1, sign test p=0.035
+      instruct N=100: median 1.47 IQR 1.04 to 3.33, 25/33 above 1, sign test p=0.0046
+   top 3 removed:
+      base     N= 20: median 0.99 IQR 0.96 to 1.06, 7/16 above 1, sign test p=0.8
+      base     N= 30: median 0.99 IQR 0.96 to 1.07, 6/16 above 1, sign test p=0.45
+      base     N=100: median 1.06 IQR 1.02 to 1.23, 15/16 above 1, sign test p=0.00052
+      instruct N= 20: median 1.21 IQR 0.74 to 2.16, 21/33 above 1, sign test p=0.16
+      instruct N= 30: median 1.54 IQR 0.94 to 2.34, 22/33 above 1, sign test p=0.08
+      instruct N=100: median 1.20 IQR 0.87 to 2.38, 23/33 above 1, sign test p=0.035
+
+3. MIDPOINT percentile among interior non-multiples of 5
+   base     N=10: 0.83  N=20: 0.71  N=30: 0.66  N=100: 0.61
+   instruct N=10: 0.67  N=20: 0.57  N=30: 0.55  N=100: 0.41
+   N=5 base: midpoint 3 is the mode in 13 of 16
+   N=5 instruct: midpoint 3 is the mode in 30 of 33
+
+4. MEDIAN TV / (1 - 1/N), from upper medians as in Table 6
+   instruct N=5: 0.680 -> 0.850  N=10: 0.736 -> 0.818  N=20: 0.704 -> 0.741  N=30: 0.739 -> 0.764  N=100: 0.842 -> 0.851
+   base     N=5: 0.178 -> 0.223  N=10: 0.190 -> 0.211  N=20: 0.204 -> 0.215  N=30: 0.196 -> 0.203  N=100: 0.241 -> 0.243
+
+5. LOWEST valid_mass at the model prior, per range
+   N=  5: gemma-2-2b-it [chat] 0.002, gemma-2-2b-it [prefill] 0.024, Mistral-7B-v0.3 [base] 0.025, Qwen3-0.6B [chat] 0.253
+   N= 10: gemma-2-2b-it [chat] 0.001, gemma-2-2b-it [prefill] 0.018, Mistral-7B-v0.3 [base] 0.024, Qwen3-0.6B [chat] 0.112
+   N= 20: gemma-2-2b-it [chat] 0.001, gemma-2-2b-it [prefill] 0.015, Mistral-7B-v0.3 [base] 0.021, Qwen3-0.6B [chat] 0.273
+   N= 30: gemma-2-2b-it [chat] 0.002, gemma-2-2b-it [prefill] 0.026, Mistral-7B-v0.3 [base] 0.027, Qwen3-0.6B [chat] 0.211
+   N=100: gemma-2-2b-it [chat] 0.002, gemma-2-2b-it [prefill] 0.025, Mistral-7B-v0.3 [base] 0.027, Qwen3-0.6B [chat] 0.163
+
+6. SIGN TESTS (two-sided)
+   15/15: p = 6.1e-05
+   16/16: p = 3.05e-05
+   21/33: p = 0.163
+   27/33: p = 0.000324
+   10/15: p = 0.302

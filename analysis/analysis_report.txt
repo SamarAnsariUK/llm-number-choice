@@ -1,0 +1,362 @@
+loaded   4640 rows from results/rtx.jsonl  (machine=rtx)
+loaded   7685 rows from results/mac24.jsonl  (machine=mac24)
+
+12325 rows total, 11078 usable (89.9%), 1247 excluded for valid_mass < 0.0001 or NaN.
+Excluding those is a pre-specified rule. State it in the methods section and report the count.
+
+==========================================================================
+1. REPLICATION ACROSS MACHINES
+==========================================================================
+Two machines ran overlapping models on different hardware AND
+different numeric precision: bfloat16 on the CUDA box, float16 on
+Apple Silicon. So a disagreement here is a precision result, not
+only a reproducibility check.
+
+STOCHASTIC decoding (the primary comparison)
+   conditions            : 3715
+   median TV difference  : 0.01673
+   90th percentile TV    : 0.07074
+   max TV difference     : 0.50000
+   same modal integer    : 3575/3715 (96.2%)
+
+GREEDY decoding (reported separately, see note above)
+   conditions            : 125
+   median TV difference  : 0.00000
+   90th percentile TV    : 0.00000
+   max TV difference     : 1.00000
+   same modal integer    : 117/125 (93.6%)
+
+Biggest STOCHASTIC disagreements:
+   TV=0.5000  microsoft/Phi-4-mini-instruct      chat     N=20   T0.1_p0.9_k0     top1 7 vs 7
+   TV=0.4770  Qwen/Qwen3-0.6B                    chat     N=10   T0.7_p0.95_k0    top1 5 vs 10
+   TV=0.4622  microsoft/Phi-4-mini-instruct      chat     N=20   T0.1_p1_k0       top1 7 vs 7
+   TV=0.4622  microsoft/Phi-4-mini-instruct      chat     N=20   T0.1_p1_k40      top1 7 vs 7
+   TV=0.4579  microsoft/Phi-4-mini-instruct      chat     N=20   T0.1_p0.95_k0    top1 7 vs 7
+   TV=0.3670  Qwen/Qwen2.5-1.5B-Instruct         chat     N=20   T0.1_p1_k0       top1 13 vs 13
+   TV=0.3670  Qwen/Qwen2.5-1.5B-Instruct         chat     N=20   T0.1_p1_k40      top1 13 vs 13
+   TV=0.3670  Qwen/Qwen2.5-1.5B-Instruct         chat     N=20   T0.1_p0.95_k0    top1 13 vs 13
+
+Disagreement by temperature:
+       temp      n   median TV    p90 TV   max TV  same mode
+     greedy    125     0.00000   0.00000  1.00000     93.6%
+       T0.1    502     0.00000   0.16221  0.50000     93.2%
+       T0.3    512     0.01680   0.08718  0.21242     95.3%
+       T0.5    527     0.02336   0.07759  0.18243     96.4%
+       T0.7    532     0.02251   0.07035  0.47700     97.2%
+       T0.8    540     0.02118   0.06336  0.22270     97.8%
+         T1    542     0.01941   0.05009  0.23392     97.4%
+         T2    560     0.01424   0.02560  0.09328     96.1%
+   Read the p90 and same-mode columns, NOT the median. At low
+   temperature most conditions are a near point mass, so the two
+   machines agree exactly and the median is 0. The failures are
+   rare but total: when the top two tokens are nearly tied,
+   precision decides the winner and TV jumps to its maximum.
+   Low temperature is therefore bimodal, not uniformly worse.
+   The honest summary statistic is the mode-agreement rate.
+
+VERDICT: the two stacks agree on stochastic decoding. Report
+this as a successful implementation replication across
+hardware and across fp16 versus bf16.
+
+Greedy is a separate story: the two machines pick the
+same integer in only 117/125 cases. When
+the top two tokens are nearly tied, numeric precision
+decides the winner. Greedy 'random' number generation is
+therefore not reproducible across inference stacks, which
+is worth stating as a finding in its own right.
+wrote analysis/replication.csv  (3840 rows)
+
+==========================================================================
+2. HEADLINE: distance from uniform at N=1..30
+==========================================================================
+Model prior means temperature 1.0 with no truncation. That IS the
+model's own distribution; everything else is the sampler acting
+on it. TV of 0 is perfectly uniform.
+
+     TV  top1  p(top1)   valid  supp  model / condition
+ 0.0606     7    0.047   0.027    30  mistralai/Mistral-7B-v0.3 [base]  <-- THIN
+ 0.0629    19    0.045   0.995    30  allenai/OLMo-2-1124-7B [base]
+ 0.0791    12    0.045   0.969    30  meta-llama/Llama-3.2-3B [base]
+ 0.1057    20    0.050   0.961    30  google/gemma-2-2b [base]
+ 0.1069    25    0.045   0.979    30  meta-llama/Llama-3.1-8B [base]
+ 0.1100    22    0.044   0.974    30  Qwen/Qwen2.5-7B [base]
+ 0.1350     5    0.060   0.776    30  google/gemma-3-4b-pt [base]
+ 0.1450    17    0.057   0.876    30  HuggingFaceTB/SmolLM2-1.7B [base]
+ 0.1783    30    0.065   0.341    30  google/gemma-3-1b-pt [base]
+ 0.1964    15    0.069   0.958    30  Qwen/Qwen3-4B-Base [base]
+ 0.2251    17    0.084   0.969    30  Qwen/Qwen3-0.6B-Base [base]
+ 0.2350    17    0.093   0.998    30  Qwen/Qwen2.5-3B [base]
+ 0.2601    17    0.070   0.953    30  HuggingFaceTB/SmolLM2-1.7B-Instruct [prefill]
+ 0.2765    15    0.088   0.968    30  meta-llama/Llama-3.2-1B [base]
+ 0.3596    15    0.084   0.992    30  Qwen/Qwen2.5-0.5B [base]
+ 0.4448    17    0.178   0.980    30  Qwen/Qwen3-1.7B-Base [base]
+ 0.4472    17    0.132   0.997    30  mistralai/Mistral-7B-Instruct-v0.3 [chat]
+ 0.4628    27    0.147   0.815    30  HuggingFaceTB/SmolLM2-1.7B-Instruct [chat]
+ 0.4741    23    0.274   0.986    30  microsoft/Phi-4-mini-instruct [chat]
+ 0.4751    17    0.199   0.917    30  Qwen/Qwen3-8B-Base [base]
+ 0.4984    17    0.154   0.993    30  Qwen/Qwen2.5-1.5B [base]
+ 0.5035    25    0.295   0.987    30  Qwen/Qwen3-0.6B [prefill]
+ 0.5186    24    0.302   1.000    30  allenai/OLMo-2-1124-7B-Instruct [chat]
+ 0.5204    17    0.190   1.000    30  allenai/OLMo-2-1124-7B-Instruct [prefill]
+ 0.5269    14    0.421   0.999    30  meta-llama/Llama-3.2-3B-Instruct [chat]
+ 0.5277    15    0.358   0.211    30  Qwen/Qwen3-0.6B [chat]
+ 0.5284    19    0.306   0.998    30  Qwen/Qwen2.5-0.5B-Instruct [chat]
+ 0.5416    17    0.357   0.026    30  google/gemma-2-2b-it [prefill]  <-- THIN
+ 0.5614    14    0.267   0.996    30  meta-llama/Llama-3.2-3B-Instruct [prefill]
+ 0.5627    14    0.232   1.000    30  meta-llama/Llama-3.1-8B-Instruct [chat]
+ 0.5733    17    0.361   0.002    30  google/gemma-2-2b-it [chat]  <-- THIN
+ 0.6228    14    0.543   0.997    30  meta-llama/Llama-3.1-8B-Instruct [prefill]
+ 0.6259    15    0.320   0.905    30  Qwen/Qwen2.5-0.5B-Instruct [prefill]
+ 0.6449    17    0.233   0.995    30  meta-llama/Llama-3.2-1B-Instruct [prefill]
+ 0.6549    17    0.547   0.861    30  microsoft/Phi-4-mini-instruct [prefill]
+ 0.7389    14    0.270   0.998    30  Qwen/Qwen2.5-1.5B-Instruct [prefill]
+ 0.7835    14    0.514   1.000    30  meta-llama/Llama-3.2-1B-Instruct [chat]
+ 0.7836    17    0.407   1.000    28  Qwen/Qwen2.5-7B-Instruct [prefill]
+ 0.8572    14    0.891   0.999    30  Qwen/Qwen2.5-1.5B-Instruct [chat]
+ 0.8814    17    0.766   1.000    28  Qwen/Qwen2.5-7B-Instruct [chat]
+ 0.8983    17    0.753   1.000    30  Qwen/Qwen2.5-3B-Instruct [chat]
+ 0.9103    23    0.903   1.000    29  Qwen/Qwen2.5-3B-Instruct [prefill]
+ 0.9205    12    0.807   1.000    29  Qwen/Qwen3-1.7B [chat]
+ 0.9240    17    0.957   1.000    29  Qwen/Qwen3-8B [prefill]
+ 0.9263    17    0.919   1.000    28  Qwen/Qwen3-4B [chat]
+ 0.9425    17    0.976   1.000    28  Qwen/Qwen3-8B [chat]
+ 0.9465    17    0.980   1.000    28  Qwen/Qwen3-4B [prefill]
+ 0.9579    15    0.991   1.000    28  google/gemma-3-1b-it [chat]
+ 0.9597    15    0.993   1.000    29  Qwen/Qwen3-1.7B [prefill]
+ 0.9635    17    0.997   1.000    25  google/gemma-3-4b-it [chat]
+ 0.9638    15    0.997   1.000    29  google/gemma-3-1b-it [prefill]
+ 0.9663    17    1.000   1.000    29  google/gemma-3-4b-it [prefill]
+
+3 rows marked THIN have valid_mass below 0.10.
+The model emits a bare integer under 10% of the time, so the
+conditional distribution is conditioned on a rare event. The
+numbers are arithmetically correct but they describe a corner
+of the model's behaviour, not its typical output. Either drop
+these rows or report them separately with the caveat stated.
+
+Favourite integer, ALL model-conditions:
+     17 : 22
+     15 : 8
+     14 : 7
+     19 : 2
+     12 : 2
+     25 : 2
+     23 : 2
+      7 : 1
+
+Favourite integer, BASE checkpoints only:
+     17 : 6
+     15 : 3
+      7 : 1
+     19 : 1
+     12 : 1
+     20 : 1
+     25 : 1
+     22 : 1
+
+Favourite integer, INSTRUCT checkpoints only:
+     17 : 16
+     14 : 7
+     15 : 5
+     23 : 2
+     27 : 1
+     25 : 1
+     24 : 1
+     19 : 1
+
+What this does and does not show. Post-training changes
+WHICH integer wins, but not toward any single shared target.
+Check section 6 before claiming a 17 effect: if P(17) rises
+in some families and collapses in others, the reliable
+finding is concentration, not the identity of the winner.
+wrote analysis/headline.csv  (52 rows)
+
+==========================================================================
+3. SAMPLER versus MODEL
+==========================================================================
+Nucleus truncation cannot make a distribution more uniform; it can
+only delete tail mass. The question is how much bias it ADDS on
+top of the model's own. Local tools ship with top_p at 0.9 or 0.95
+by default, so this is the gap between what the model believes and
+what the user experiences.
+
+at N=1..30, 75 model-conditions:
+   median TV added by top_p=0.95 : +0.0355
+   largest TV added              : +0.1592
+   median increase in p(mode)    : 1.04x
+
+   Largest sampler effects:
+      +0.1592  Qwen/Qwen3-0.6B                    [chat]  p(mode) 0.579 -> 0.799
+      +0.0849  Qwen/Qwen3-0.6B                    [chat]  p(mode) 0.581 -> 0.683
+      +0.0751  Qwen/Qwen2.5-0.5B                  [base]  p(mode) 0.143 -> 0.157
+      +0.0687  Qwen/Qwen3-0.6B-Base               [base]  p(mode) 0.113 -> 0.124
+      +0.0684  Qwen/Qwen2.5-7B                    [base]  p(mode) 0.054 -> 0.059
+      +0.0681  google/gemma-2-2b                  [base]  p(mode) 0.061 -> 0.066
+      +0.0664  google/gemma-2-2b                  [base]  p(mode) 0.064 -> 0.070
+      +0.0637  Qwen/Qwen3-0.6B-Base               [base]  p(mode) 0.119 -> 0.129
+wrote analysis/sampler_effect.csv  (375 rows)
+
+==========================================================================
+4. BASE versus INSTRUCT
+==========================================================================
+Same tokeniser, same architecture, same pretraining. Only the
+post-training differs. Compare the base run against the instruct
+PREFILL run, because the base prompt already forces the answer
+position and comparing against no-prefill would confound
+post-training with answer-position forcing.
+
+ TV base  TV inst   change  mode b  mode i  family
+  0.1350   0.9663  +0.8313       5      17  google/gemma-3-4b-it
+  0.1783   0.9638  +0.7855      30      15  google/gemma-3-1b-it
+  0.1964   0.9465  +0.7501      15      17  Qwen/Qwen3-4B
+  0.2350   0.9103  +0.6753      17      23  Qwen/Qwen2.5-3B-Instruct
+  0.1100   0.7836  +0.6735      22      17  Qwen/Qwen2.5-7B-Instruct
+  0.1069   0.6228  +0.5159      25      14  meta-llama/Llama-3.1-8B-Instruct
+  0.4448   0.9597  +0.5149      17      15  Qwen/Qwen3-1.7B
+  0.0791   0.5614  +0.4824      12      14  meta-llama/Llama-3.2-3B-Instruct
+  0.0629   0.5204  +0.4576      19      17  allenai/OLMo-2-1124-7B-Instruct
+  0.4751   0.9240  +0.4489      17      17  Qwen/Qwen3-8B
+  0.2765   0.6449  +0.3684      15      17  meta-llama/Llama-3.2-1B-Instruct
+  0.2251   0.5035  +0.2784      17      25  Qwen/Qwen3-0.6B
+  0.3596   0.6259  +0.2663      15      15  Qwen/Qwen2.5-0.5B-Instruct
+  0.4984   0.7389  +0.2405      17      14  Qwen/Qwen2.5-1.5B-Instruct
+  0.1450   0.2601  +0.1151      17      17  HuggingFaceTB/SmolLM2-1.7B-Instruct
+
+instruct less uniform than base: 15/15 pairs
+Existing work (arXiv:2505.00047) reports base models are closer
+to uniform. If your pairs agree, you have replicated it with exact
+measurement instead of sampling. If they disagree, say so.
+wrote analysis/base_vs_instruct.csv  (15 rows)
+
+==========================================================================
+5. HOW THE FAVOURITE INTEGER MOVES WITH THE RANGE
+==========================================================================
+
+BASE checkpoints, favourite integer by range:
+   N=1..5    n=16  median TV=0.178   modes: 3(13), 2(2), 4(1)
+   N=1..10   n=16  median TV=0.190   modes: 7(11), 5(3), 6(1), 9(1)
+   N=1..20   n=16  median TV=0.204   modes: 15(5), 13(2), 17(2), 10(2), 11(1)
+   N=1..30   n=16  median TV=0.196   modes: 17(6), 15(3), 30(1), 20(1), 5(1)
+   N=1..100  n=16  median TV=0.241   modes: 50(4), 42(3), 10(2), 37(2), 73(2)
+
+INSTRUCT checkpoints, favourite integer by range:
+   N=1..5    n=33  median TV=0.680   modes: 3(30), 4(2), 1(1)
+   N=1..10   n=33  median TV=0.736   modes: 7(28), 5(2), 8(2), 9(1)
+   N=1..20   n=33  median TV=0.704   modes: 14(12), 13(8), 15(5), 12(3), 7(2)
+   N=1..30   n=33  median TV=0.739   modes: 17(14), 14(7), 15(5), 23(2), 19(1)
+   N=1..100  n=33  median TV=0.842   modes: 42(13), 73(6), 47(2), 53(2), 9(1)
+
+What to check against the literature:
+   N=1..5    Coronado-Blazquez 2025 reports 3 and 4
+   N=1..10   reports 5 and 7
+   N=1..100  reports 37, 47 and 73
+   N=1..20   this is the classic human '17' range; no LLM study
+             has published it, so it is genuinely yours
+wrote analysis/by_range.csv  (245 rows)
+
+==========================================================================
+6. THE 17 PREFERENCE, MEASURED DIRECTLY
+==========================================================================
+Uniform would give P(17) = 0.0333. The ratio column is how many
+times more likely than uniform 17 actually is.
+
+ P17 base   ratio  P17 inst   ratio  amplif  family
+   0.0306    0.92    0.9996   29.99   32.62  google/gemma-3-4b-it
+   0.0691    2.07    0.9798   29.39   14.19  Qwen/Qwen3-4B
+   0.1989    5.97    0.9569   28.71    4.81  Qwen/Qwen3-8B
+   0.0426    1.28    0.4071   12.21    9.55  Qwen/Qwen2.5-7B-Instruct
+   0.0761    2.28    0.2331    6.99    3.06  meta-llama/Llama-3.2-1B-Instruct
+   0.0347    1.04    0.1952    5.86    5.63  meta-llama/Llama-3.2-3B-Instruct
+   0.0381    1.14    0.1896    5.69    4.98  allenai/OLMo-2-1124-7B-Instruct
+   0.0405    1.22    0.0739    2.22    1.82  meta-llama/Llama-3.1-8B-Instruct
+   0.0569    1.71    0.0697    2.09    1.23  HuggingFaceTB/SmolLM2-1.7B-Instruct
+   0.0448    1.35    0.0684    2.05    1.53  Qwen/Qwen2.5-0.5B-Instruct
+   0.0837    2.51    0.0353    1.06    0.42  Qwen/Qwen3-0.6B
+   0.0934    2.80    0.0092    0.28    0.10  Qwen/Qwen2.5-3B-Instruct
+   0.1544    4.63    0.0034    0.10    0.02  Qwen/Qwen2.5-1.5B-Instruct
+   0.1779    5.34    0.0004    0.01    0.00  Qwen/Qwen3-1.7B
+   0.0262    0.78    0.0003    0.01    0.01  google/gemma-3-1b-it
+
+median ratio, base     : 1.71x uniform
+median ratio, instruct : 2.22x uniform
+P(17) rose in 10/15 families, FELL in 5
+
+If the count is split and the two medians are close, there is
+no reliable 17 effect from post-training. Post-training
+concentrates the distribution hard, but the target it
+concentrates on is model-specific. Some families land on 17 and
+some actively move away from it. Report the split honestly; a
+bidirectional result is still a result, and claiming a uniform
+amplification the data does not support is how papers get
+retracted.
+wrote analysis/seventeen.csv  (15 rows)
+
+==========================================================================
+7. WHICH INTEGERS GET THE MASS
+==========================================================================
+Ratios against uniform, averaged over models. 1.00 = no
+preference. Computed on the whole distribution, not the mode.
+
+BASE checkpoints:
+   set                              N=5     N=10     N=20     N=30    N=100
+   endpoints (1, N)                0.72     0.46     0.33     0.38     0.44
+   multiples of 10                    -        -     0.99     1.12     0.92
+   multiples of 5, not of 10          -     1.41     1.31     1.33     1.10
+   primes                          1.44     1.25     1.03     1.05     1.03
+   odd numbers                     1.59     1.23     1.17     1.09     1.08
+
+INSTRUCT checkpoints:
+   set                              N=5     N=10     N=20     N=30    N=100
+   endpoints (1, N)                0.00     0.00     0.00     0.00     0.00
+   multiples of 10                    -        -     0.12     0.06     0.00
+   multiples of 5, not of 10          -     0.24     0.54     0.59     0.16
+   primes                          2.20     2.12     0.97     1.17     1.33
+   odd numbers                     4.40     2.19     1.20     1.54     1.21
+
+How to read this. A row that sits below 1.00 across every range
+is an avoided class; above 1.00 is a preferred class. Compare the
+base block against the instruct block: if a preference is already
+present in base checkpoints, pretraining put it there. If it only
+appears in the instruct block, post-training did.
+
+Do not go hunting for more patterns after seeing this table.
+These five were specified in advance. Anything you notice now and
+test on the same data is a post-hoc finding and has to be
+labelled as one.
+wrote analysis/structure.csv  (44 rows)
+
+==========================================================================
+8. SEPARATING THE OVERLAPPING EFFECTS
+==========================================================================
+Endpoints and the modal integer are excluded from contrasts A
+and B, and the remainder renormalised. Without that, both
+contrasts just re-measure the endpoint effect and the mode.
+A ratio of 1.00 means no preference within the controlled set.
+
+A. odd vs even, excluding multiples of 5, endpoints and the mode
+                              N=5     N=10     N=20     N=30    N=100
+   base                         -        -     1.09     1.01     1.16
+   instruct                     -        -     1.64     1.24     2.09
+     n models, base             0        0       16       16       16
+     n models, instruct         0        0       33       33       33
+   A dash means the contrast set was too small at that range.
+
+B. prime vs non-prime, among odd non-multiples of 5, excluding
+   endpoints and the mode
+                              N=5     N=10     N=20     N=30    N=100
+   base                         -        -        -     1.07     1.10
+   instruct                     -        -        -     2.10     1.52
+     n models, base             0        0        0       16       16
+     n models, instruct         0        0        0       32       33
+   A dash means the contrast set was too small at that range.
+
+C. endpoints, each relative to the average interior integer
+                              N=5     N=10     N=20     N=30    N=100
+   base P(1)                0.600    0.406    0.362    0.321    0.356
+   base P(N)                0.601    0.318    0.369    0.300    0.413
+   instruct P(1)            0.000    0.000    0.000    0.000    0.000
+   instruct P(N)            0.001    0.000    0.000    0.000    0.000
+
+Contrast C is the robust one. It uses no set membership, so
+neither flaw applies to it.
+wrote analysis/disentangle.csv  (30 rows)

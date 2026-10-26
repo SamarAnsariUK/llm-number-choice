@@ -1,0 +1,45 @@
+kind,set,n_max,median_ratio_vs_uniform,n_models
+base,"endpoints (1, N)",5,0.715388592952968,16
+base,"endpoints (1, N)",10,0.45943404000843235,16
+base,"endpoints (1, N)",20,0.32752652442886593,16
+base,"endpoints (1, N)",30,0.3818154508817947,16
+base,"endpoints (1, N)",100,0.4390033652811499,16
+base,multiples of 10,20,0.9943392501204851,16
+base,multiples of 10,30,1.1164481318302502,16
+base,multiples of 10,100,0.9208866384556292,16
+base,"multiples of 5, not of 10",10,1.4111558901016412,16
+base,"multiples of 5, not of 10",20,1.3079798432530716,16
+base,"multiples of 5, not of 10",30,1.3286114222333607,16
+base,"multiples of 5, not of 10",100,1.0968124302547555,16
+base,primes,5,1.4439935578503333,16
+base,primes,10,1.2457220157488806,16
+base,primes,20,1.0270326729937909,16
+base,primes,30,1.0485047333498891,16
+base,primes,100,1.0336886425102683,16
+base,odd numbers,5,1.5876427183261932,16
+base,odd numbers,10,1.232795761671106,16
+base,odd numbers,20,1.173946790117753,16
+base,odd numbers,30,1.0882357569833057,16
+base,odd numbers,100,1.0825577413692207,16
+instruct,"endpoints (1, N)",5,0.001208226827875173,33
+instruct,"endpoints (1, N)",10,4.110190779143725e-05,33
+instruct,"endpoints (1, N)",20,7.0113521053797246e-06,33
+instruct,"endpoints (1, N)",30,1.4997917830702124e-05,33
+instruct,"endpoints (1, N)",100,2.9653891149535927e-07,33
+instruct,multiples of 10,20,0.11937601384010299,33
+instruct,multiples of 10,30,0.06424515547248598,33
+instruct,multiples of 10,100,0.0003915583118186787,33
+instruct,"multiples of 5, not of 10",10,0.23550282195270644,33
+instruct,"multiples of 5, not of 10",20,0.5377589119335252,33
+instruct,"multiples of 5, not of 10",30,0.5942859179594611,33
+instruct,"multiples of 5, not of 10",100,0.1602702101207444,33
+instruct,primes,5,2.2019882785675104,33
+instruct,primes,10,2.1183665378371757,33
+instruct,primes,20,0.9704710323960165,33
+instruct,primes,30,1.167907094749591,33
+instruct,primes,100,1.3251885754954156,33
+instruct,odd numbers,5,4.397644297841781,33
+instruct,odd numbers,10,2.1858440984301506,33
+instruct,odd numbers,20,1.1987522667451649,33
+instruct,odd numbers,30,1.544258325342084,33
+instruct,odd numbers,100,1.2102470828845138,33

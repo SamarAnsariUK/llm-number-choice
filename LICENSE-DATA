@@ -1,0 +1,26 @@
+Data licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Samar Ansari
+
+This licence covers everything in the data/, analysis/ and logs/ folders of
+this repository: the computed probability distributions (data/rtx.jsonl and
+data/mac24.jsonl), the analysis tables and reports, and the run logs.
+
+You are free to share (copy and redistribute in any medium or format) and to
+adapt (remix, transform and build upon) this material for any purpose, even
+commercially, as long as you give appropriate credit, provide a link to the
+licence, and indicate if changes were made.
+
+Please credit the data by citing the paper and this repository (see
+CITATION.cff).
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:         https://creativecommons.org/licenses/by/4.0/
+
+Note on the models. The data are probabilities computed from third-party
+language models (Qwen, Gemma, Llama, Mistral, OLMo, SmolLM2 and Phi). This
+licence covers only the computed results. It grants no rights in the models
+themselves, which remain under their own licences and terms of use.
+
+The code in this repository is licensed separately under the MIT licence
+(see LICENSE).
