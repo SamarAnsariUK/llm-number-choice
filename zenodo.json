@@ -1,0 +1,19 @@
+{
+  "upload_type": "software",
+  "title": "llm-number-choice: code and data for \"3, 7, 14, 17, 42: Instruction Tuning Installs and Sharpens Number-Choice Heuristics in Language Models\"",
+  "creators": [
+    {
+      "name": "Ansari, Samar"
+    }
+  ],
+  "description": "Code and data for computing, by exact enumeration rather than sampling, the probability that 18 open-weight language models assign to each integer from 1 to N when asked for a random number, before and after instruction tuning. The code is licensed under MIT. The data in data/, analysis/ and logs/ are licensed under CC BY 4.0 (see LICENSE-DATA).",
+  "license": "mit",
+  "keywords": [
+    "large language models",
+    "random number generation",
+    "instruction tuning",
+    "calibration",
+    "exact enumeration"
+  ],
+  "version": "1.0.1"
+}

@@ -7,11 +7,9 @@ title: "llm-number-choice: code and data for '3, 7, 14, 17, 42: Instruction Tuni
 authors:
   - family-names: Ansari
     given-names: Samar
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-10-26   # TODO: set to the day you make the GitHub release
-license:
-  - MIT
-  - CC-BY-4.0
+license: MIT
 repository-code: "https://github.com/GITHUB-USERNAME/llm-number-choice"
 keywords:
   - large language models
