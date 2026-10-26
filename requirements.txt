@@ -1,0 +1,20 @@
+# Versions used on the CUDA machine (RTX 4070 Ti, Windows, Python 3.12).
+# The Metal machine (Mac Mini, Python 3.14) used the same libraries; its exact
+# versions were not recorded.
+#
+# torch: install the build that matches your hardware. For CUDA, follow the
+# selector at https://pytorch.org/get-started/locally/ instead of plain pip.
+
+# Measurement (code/rng_exact.py, code/run_all.py)
+torch==2.11.0
+transformers==5.5.4
+accelerate==1.13.0
+tokenizers==0.22.2
+safetensors==0.7.0
+sentencepiece==0.2.1
+Jinja2==3.1.6
+huggingface_hub    # version not recorded; any version that supports transformers 5.5.4
+
+# Analysis and figures (code/analyze.py, code/extra_analyses.py, code/make_figures_v6.py)
+numpy==2.4.4
+matplotlib==3.10.8
