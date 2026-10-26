@@ -1,5 +1,3 @@
-# TODO before release: replace GITHUB-USERNAME, add the Zenodo DOI and the
-# arXiv identifier once you have them.
 cff-version: 1.2.0
 message: "If you use this code or data, please cite it as below."
 type: software
