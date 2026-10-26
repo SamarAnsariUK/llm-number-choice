@@ -10,7 +10,7 @@ authors:
 version: 1.0.1
 date-released: 2026-10-26   # TODO: set to the day you make the GitHub release
 license: MIT
-repository-code: "https://github.com/GITHUB-USERNAME/llm-number-choice"
+repository-code: "https://github.com/SamarAnsariUK/llm-number-choice"
 keywords:
   - large language models
   - random number generation
