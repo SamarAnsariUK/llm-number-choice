@@ -1,0 +1,250 @@
+
+  WARNING: valid_mass is 0.00e+00. The model is not producing a bare integer here, so every number below is a ratio of near-zero values and means nothing.
+  Re-run with --diagnose to see what it emits instead, and with --no-think if this is a reasoning model such as Qwen3.
+
+  prompt ends with: ' integer between 1 and 5, inclusive. Reply with only the number.<end_of_turn>\n<start_of_turn>model\nAnswer: '
+  top 15 tokens at the answer position:
+           '<unused5>'  p=nan
+           '<unused3>'  p=nan
+        '[multimodal]'  p=nan
+           '<unused7>'  p=nan
+           '<unused2>'  p=nan
+              '<mask>'  p=nan
+           '<unused4>'  p=nan
+               '<bos>'  p=nan
+           '<unused6>'  p=nan
+           '<unused0>'  p=nan
+           '<unused8>'  p=nan
+               '<pad>'  p=nan
+               '<eos>'  p=nan
+               '<unk>'  p=nan
+           '<unused1>'  p=nan
+google/gemma-3-4b-it N=5 primary T0.1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.3_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.3_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.3_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.3_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.5_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.5_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.5_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.5_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.7_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.7_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.7_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.7_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.8_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.8_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.8_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T0.8_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T2_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T2_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T2_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary T2_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=5 primary greedy_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+
+  WARNING: valid_mass is 0.00e+00. The model is not producing a bare integer here, so every number below is a ratio of near-zero values and means nothing.
+  Re-run with --diagnose to see what it emits instead, and with --no-think if this is a reasoning model such as Qwen3.
+
+  prompt ends with: ' between 1 and 10, inclusive. Reply with only the number.<end_of_turn>\n<start_of_turn>model\nAnswer: '
+  top 15 tokens at the answer position:
+           '<unused5>'  p=nan
+           '<unused3>'  p=nan
+        '[multimodal]'  p=nan
+           '<unused7>'  p=nan
+           '<unused2>'  p=nan
+              '<mask>'  p=nan
+           '<unused4>'  p=nan
+               '<bos>'  p=nan
+           '<unused6>'  p=nan
+           '<unused0>'  p=nan
+           '<unused8>'  p=nan
+               '<pad>'  p=nan
+               '<eos>'  p=nan
+               '<unk>'  p=nan
+           '<unused1>'  p=nan
+google/gemma-3-4b-it N=10 primary T0.1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.3_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.3_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.3_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.3_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.5_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.5_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.5_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.5_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.7_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.7_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.7_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.7_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.8_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.8_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.8_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T0.8_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T2_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T2_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T2_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary T2_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=10 primary greedy_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+
+  WARNING: valid_mass is 0.00e+00. The model is not producing a bare integer here, so every number below is a ratio of near-zero values and means nothing.
+  Re-run with --diagnose to see what it emits instead, and with --no-think if this is a reasoning model such as Qwen3.
+
+  prompt ends with: ' between 1 and 20, inclusive. Reply with only the number.<end_of_turn>\n<start_of_turn>model\nAnswer: '
+  top 15 tokens at the answer position:
+           '<unused5>'  p=nan
+           '<unused3>'  p=nan
+        '[multimodal]'  p=nan
+           '<unused7>'  p=nan
+           '<unused2>'  p=nan
+              '<mask>'  p=nan
+           '<unused4>'  p=nan
+               '<bos>'  p=nan
+           '<unused6>'  p=nan
+           '<unused0>'  p=nan
+           '<unused8>'  p=nan
+               '<pad>'  p=nan
+               '<eos>'  p=nan
+               '<unk>'  p=nan
+           '<unused1>'  p=nan
+google/gemma-3-4b-it N=20 primary T0.1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.3_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.3_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.3_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.3_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.5_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.5_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.5_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.5_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.7_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.7_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.7_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.7_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.8_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.8_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.8_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T0.8_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T2_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T2_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T2_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary T2_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=20 primary greedy_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+
+  WARNING: valid_mass is 0.00e+00. The model is not producing a bare integer here, so every number below is a ratio of near-zero values and means nothing.
+  Re-run with --diagnose to see what it emits instead, and with --no-think if this is a reasoning model such as Qwen3.
+
+  prompt ends with: ' between 1 and 30, inclusive. Reply with only the number.<end_of_turn>\n<start_of_turn>model\nAnswer: '
+  top 15 tokens at the answer position:
+           '<unused5>'  p=nan
+           '<unused3>'  p=nan
+        '[multimodal]'  p=nan
+           '<unused7>'  p=nan
+           '<unused2>'  p=nan
+              '<mask>'  p=nan
+           '<unused4>'  p=nan
+               '<bos>'  p=nan
+           '<unused6>'  p=nan
+           '<unused0>'  p=nan
+           '<unused8>'  p=nan
+               '<pad>'  p=nan
+               '<eos>'  p=nan
+               '<unk>'  p=nan
+           '<unused1>'  p=nan
+google/gemma-3-4b-it N=30 primary T0.1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.3_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.3_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.3_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.3_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.5_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.5_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.5_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.5_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.7_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.7_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.7_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.7_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.8_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.8_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.8_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T0.8_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T2_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T2_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T2_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary T2_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=30 primary greedy_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+
+  WARNING: valid_mass is 0.00e+00. The model is not producing a bare integer here, so every number below is a ratio of near-zero values and means nothing.
+  Re-run with --diagnose to see what it emits instead, and with --no-think if this is a reasoning model such as Qwen3.
+
+  prompt ends with: ' 1 and 100, inclusive. Reply with only the number.<end_of_turn>\n<start_of_turn>model\nAnswer: '
+  top 15 tokens at the answer position:
+           '<unused5>'  p=nan
+           '<unused3>'  p=nan
+        '[multimodal]'  p=nan
+           '<unused7>'  p=nan
+           '<unused2>'  p=nan
+              '<mask>'  p=nan
+           '<unused4>'  p=nan
+               '<bos>'  p=nan
+           '<unused6>'  p=nan
+           '<unused0>'  p=nan
+           '<unused8>'  p=nan
+               '<pad>'  p=nan
+               '<eos>'  p=nan
+               '<unk>'  p=nan
+           '<unused1>'  p=nan
+google/gemma-3-4b-it N=100 primary T0.1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.3_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.3_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.3_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.3_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.5_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.5_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.5_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.5_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.7_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.7_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.7_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.7_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.8_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.8_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.8_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T0.8_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T1_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T1_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T1_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T1_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T2_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T2_p0.95_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T2_p0.9_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary T2_p1_k40 TV=nan top1=-1 (nan) valid_mass=0.000e+00
+google/gemma-3-4b-it N=100 primary greedy_p1_k0 TV=nan top1=-1 (nan) valid_mass=0.000e+00

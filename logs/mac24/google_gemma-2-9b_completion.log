@@ -1,0 +1,151 @@
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4962.21 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.33 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 2378.36 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.32 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4932.85 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.33 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4962.27 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.33 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4962.21 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.32 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4844.48 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.33 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4844.48 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.32 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4932.85 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.32 MB free disk space.
+  warnings.warn(
+/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py:755: UserWarning: Not enough free disk space to download the file. The expected file size is: 4962.27 MB. The target location /Users/m.ansari/.cache/huggingface/hub/models--google--gemma-2-9b/blobs only has 402.32 MB free disk space.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Users/m.ansari/rng-study/rng_exact.py", line 973, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/m.ansari/rng-study/rng_exact.py", line 968, in main
+    run(args)
+    ~~~^^^^^^
+  File "/Users/m.ansari/rng-study/rng_exact.py", line 853, in run
+    backend = HFBackend(args.model, device=args.device,
+                        revision=args.revision)
+  File "/Users/m.ansari/rng-study/rng_exact.py", line 507, in __init__
+    self.model = AutoModelForCausalLM.from_pretrained(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model_id, revision=revision, dtype=dtype)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path=pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/transformers/modeling_utils.py", line 795, in _get_resolved_checkpoint_files
+    checkpoint_files, sharded_metadata = get_checkpoint_shard_files(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/transformers/utils/hub.py", line 902, in get_checkpoint_shard_files
+    cached_filenames = cached_files(
+        pretrained_model_name_or_path,
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+    )
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/transformers/utils/hub.py", line 535, in cached_files
+    raise e
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/transformers/utils/hub.py", line 453, in cached_files
+    snapshot_download(
+    ~~~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/_snapshot_download.py", line 522, in snapshot_download
+    hf_thread_map(
+    ~~~~~~~~~~~~~^
+        _inner_hf_hub_download,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/_snapshot_download.py", line 502, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        repo_id,
+        ^^^^^^^^
+    ...<14 lines>...
+        dry_run=dry_run,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py", line 1028, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<15 lines>...
+        dry_run=dry_run,
+    )
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py", line 1251, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        incomplete_path=Path(blob_path + ".incomplete"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py", line 1976, in _download_to_tmp_and_move
+    xet_get(
+    ~~~~~~~^
+        incomplete_path=tmp_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/m.ansari/rng-study/.venv/lib/python3.14/site-packages/huggingface_hub/file_download.py", line 571, in xet_get
+    with session.new_file_download_group(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        endpoint=connection_info.endpoint,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        progress_callback=progress.update_progress,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as group:
+    ^
+RuntimeError: Task error: File reconstruction error: IO Error: No space left on device (os error 28)
